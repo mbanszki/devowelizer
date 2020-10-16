@@ -1,0 +1,6 @@
+input,output
+123,123
+aeiou123,123
+123aeiou,123
+1aeiou2aeiou3,123
+aeiou1aeiou2aeiou3aeiou,123

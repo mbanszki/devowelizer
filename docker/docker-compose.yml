@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  devowelizer:
+    container_name: devowelizer
+    image: casumo/devowelizer:latest
+    stdin_open: true
+    ports:
+      - 8080:8080
+    network_mode: bridge

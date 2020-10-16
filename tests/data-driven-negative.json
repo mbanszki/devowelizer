@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "1924358c-e8fc-4bef-8029-d4836f107dd5",
+		"name": "Devowelizer - Data-Driven Negative Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Data Driven Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "87fc8ce0-08e9-44b9-a79e-03861ed66cb0",
+						"exec": [
+							"tests['Confirming Response Code'] = pm.response.code == data.output;",
+							"",
+							"console.log(\"Request Data - \" + data.input)",
+							"console.log(\"Request Data - \" + data.output)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/{{input}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{input}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f1547d5e-457b-4d6a-bdb4-84bf2f492cab",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4ac4c2a9-72b1-4293-9d7a-c9d74b33c648",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

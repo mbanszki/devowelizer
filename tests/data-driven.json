@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "3652f502-b064-4736-9dd1-4213251b9073",
+		"name": "Devowelizer - Data-Driven",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Data Driven Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "257c320d-8d04-4d80-9cec-f404826482c8",
+						"exec": [
+							"tests['Response code is 200'] = pm.response.code === 200;",
+							"",
+							"var name = 'Data Driven Test';",
+							"tests[name] = pm.response.text() == data.output",
+							"",
+							"console.log(\"Request Data - \" + data.input)",
+							"console.log(\"Response Data - \" + pm.response.text())",
+							"console.log(\"Expected Data - \" + data.output)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/{{input}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{input}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4636efcd-17e4-46c0-96f7-0aadb0ca9e24",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "81f592f0-4fda-41b7-a7ee-d969d91df534",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

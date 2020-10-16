@@ -1,0 +1,24 @@
+{
+	"id": "23b4f759-046d-4e8d-a2e1-5b023ccc9a8e",
+	"name": "devowelizer",
+	"values": [
+		{
+			"key": "url",
+			"value": "http://localhost:8080",
+			"enabled": true
+		},
+		{
+			"key": "input",
+			"value": "abc",
+			"enabled": true
+		},
+		{
+			"key": "output",
+			"value": "bc",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-10-15T16:44:30.825Z",
+	"_postman_exported_using": "Postman/7.34.0"
+}

@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  devowelizer-qa:
+    image: mbdevv/postman-qa-devowelizer
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+#    stdin_open: true
+    network_mode: bridge
+    external_links:
+      - devowelizer
+    environment:
+      - "TEST_SUITE=${TEST_SUITE:-data-driven.json}"
+      - "TEST_ENV_URL=${TEST_ENV_URL:-http://devowelizer:8080}"
+      - "TEST_DATA=${TEST_DATA:-basic.csv}"
+      - "TEST_ENV=${TEST_ENV:-docker-internal.json}"
+      - "REQUEST_DELAY=${REQUEST_DELAY:-0}"
+    command:
+      run /tests/${TEST_SUITE}
+      -r htmlextra,cli
+      --delay-request ${REQUEST_DELAY}
+      --iteration-data /data/${TEST_DATA}
+      --env-var "url=${TEST_ENV_URL}"
+    volumes:
+      - ../tests/:/tests
+      - ../environments/:/environments
+      - ../data/:/data
+      - ../resources/:/resources
+      - ../results:/etc/newman/newman

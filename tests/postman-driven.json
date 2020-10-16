@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "f6b1f2a7-6703-4aeb-938b-dc470e2bd609",
+		"name": "Devowelizer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "516da11c-17cf-4e7d-8b77-a33b45eacf20",
+						"exec": [
+							"tests['Response code is 200'] = pm.response.code === 200;",
+							"",
+							"var name = 'Postman Test'",
+							"tests[name] = pm.response.text() === pm.environment.get(\"output\")",
+							"",
+							"console.log(\"Request Data - \" + pm.environment.get(\"input\"))",
+							"console.log(\"Response Data - \" + pm.response.text())",
+							"console.log(\"Request Data - \" + pm.environment.get(\"output\"))",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/{{input}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{input}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
